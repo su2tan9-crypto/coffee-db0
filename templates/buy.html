@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee</title>
+</head>
+<body>
+    <h1>{{ drink.name }}</h1>
+    <br>
+
+    <style>
+        body{
+            background-color: black;
+            color: bisque;
+        }
+        a{
+            color: coral;
+        }
+    </style>
+
+    <img src="/static/images/{{ drink.image }}" width="150">
+    <br>
+
+    <p>
+        Описание: {{ drink.description }}
+    </p>
+    <br>
+
+    <p>
+        <a href="/">Назад</a>
+    </p>
+
+</body>
+</html>
