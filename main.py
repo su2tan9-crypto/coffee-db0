@@ -23,8 +23,11 @@ def home(request: Request, search: str = "", db: Session = Depends(get_db)):
         drinks = db.query(Drink).all()    
 
     return templates.TemplateResponse(
-        "index.html", {"request": request, "drinks": drinks, "search": search}
-    )     
+    request=request,
+    name="index.html",
+    context={"drinks": drinks, "search": search}
+)
+ 
 
 
 @app.get("/drink/{drink_id}")
@@ -33,8 +36,10 @@ def item(request: Request, drink_id: int, db: Session = Depends(get_db)):
     if not drink:
         raise HTTPException(status_code=404, detail="not found")
     return templates.TemplateResponse(
-        "buy.html", {"request": request, "drink": drink}
-    )
+    request=request,
+    name="buy.html",
+    context={"drink": drink}
+)
 
 
 @app.post("/drink")
